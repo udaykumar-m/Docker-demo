@@ -1,15 +1,23 @@
-pipeline{
-    agents any
+pipeline {
+    agent any
 
     stages {
 
         stage("build") {
             steps {
-                echo 'build app'
+                echo 'build app after 2 minutes pr'
+                nodejs('Node-10.17') {
+                    sh 'yarn install'
+                }
             }
         }
 
         stage("test") {
+            when {
+                expression{
+                    Branch_NAME == 'jenkins'
+                }
+            }
             steps {
                 echo 'test app'
             }
