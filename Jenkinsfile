@@ -10,6 +10,11 @@ pipeline {
         }
 
         stage("test") {
+            when {
+                expression{
+                    Branch_NAME == 'jenkins'
+                }
+            }
             steps {
                 echo 'test app'
             }
