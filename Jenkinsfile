@@ -5,7 +5,7 @@ pipeline {
 
         stage("build") {
             steps {
-                echo 'build app'
+                echo 'build app after 2 minutes pr'
             }
         }
 
