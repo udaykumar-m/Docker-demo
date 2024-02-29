@@ -6,6 +6,9 @@ pipeline {
         stage("build") {
             steps {
                 echo 'build app after 2 minutes pr'
+                nodejs('Node-10.17') {
+                    sh 'yarn install'
+                }
             }
         }
 
